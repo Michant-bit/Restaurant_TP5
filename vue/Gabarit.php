@@ -29,7 +29,7 @@
                   <a class="nav-link" href="vue/Modifier.php">Modifier</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="vue/Supprimer.php">Supprimer</a>
+                  <a class="nav-link" href="index.php?action=apropos">À propos</a>
               </li>
             </ul>
             <span class="navbar-text">

@@ -8,6 +8,11 @@ function acceuil(){
     require 'vue/Acceuil.php';
 }
 
+// Affiche la liste de tous les articles du blog
+function apropos() {
+    require 'vue/Apropos.php';
+}
+
 // Affiche les détails du menu
 function menu($idMenu, $erreur) {
     $menu = getMenu($idMenu);

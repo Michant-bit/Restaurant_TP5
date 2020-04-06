@@ -5,6 +5,11 @@ require 'controleur/Controleur.php';
 try {
     if (isset($_GET['action'])) {
         
+        // À propos
+        if ($_GET['action'] == 'apropos') {
+            apropos();
+        } else
+
         // Afficher un menu
         if ($_GET['action'] == 'menu') {
             if (isset($_GET['id'])) {

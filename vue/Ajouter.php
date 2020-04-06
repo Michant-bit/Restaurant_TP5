@@ -27,7 +27,7 @@
             </div>
         </div>
         <input type="hidden" name="utilisateur_id" value="1" /><br />
-        <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+        <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
     </p>
 </form>
 

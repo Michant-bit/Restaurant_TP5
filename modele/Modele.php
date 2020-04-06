@@ -14,7 +14,7 @@ function getMenus() {
 }
 
 // Envoyer les informations des menus de la liste
-function setMenus($menus) {
+function setMenus($menu) {
     $baseDonnees = getBaseDonnees();
     $resultat = $baseDonnees->prepare('INSERT INTO menus (nom, date_debut, date_fin, details) VALUES(?, ?, ?, ?)');
     $resultat->execute(array($menu['nom'], $menu['date_debut'], $menu['date_fin'], $menu['details']));
