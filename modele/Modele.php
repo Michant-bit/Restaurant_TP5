@@ -68,7 +68,7 @@ function supprimerItem($id){
 // Ajouter un item à un menu
 function setItem($item) {
     $baseDonnees = getBaseDonnees();
-    $resultat = $baseDonnees -> prepare('INSERT INTO item (nom, prix, details, menu_id) VALUES(?,?,?,?)');
+    $resultat = $baseDonnees -> prepare('INSERT INTO items (nom, prix, details, menu_id) VALUES(?,?,?,?)');
     $resultat->execute(array($item['nom'], $item['prix'], $item['details'], $item['menu_id']));
     return $resultat;
 }

@@ -14,12 +14,12 @@
 <header>
     <p class="lead">Items du menu</p>
 </header>
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">Supprimer</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prix($)</th>
+            <th scope="col" class="col-sm-2">Supprimer</th>
+            <th scope="col" class="col-sm-2">Nom</th>
+            <th scope="col" class="col-sm-2">Prix($)</th>
             <th scope="col">Détails</th>
         </tr>
     </thead>
@@ -41,15 +41,30 @@
     <?php endforeach; ?>
     <tbody>
 </table>
-
+<hr />
+<header>
+        <p class="lead">Ajouter un item</p>
+</header>
 <form action="index.php?action=item" method="post">
-    <h2>Ajouter un item</h2>
     <p>
-        <label for="nom">Nom</label> : <input type="text" name="nom" id="nom" /><br />
-        <label for="prix">Prix</label> :  <input type="double" name="prix" id="prix" /><br />
-        <label for="details">Détails</label> :  <textarea type="text" name="details" id="details" ></textarea><br />
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="nom">Nom</label>
+                <input type="text" class="form-control" name="nom" id="nom"/> <br />
+            </div>
+            <div class="col-sm-1">
+                <label for="prix">Prix</label>
+                <input type="double" class="form-control" name="prix" id="prix"/> <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="details">Détails</label>
+                <textarea type="text" class="form-control" name="details" id="details"></textarea><br />
+            </div>
+        </div>
         <input type="hidden" name="menu_id" value="<?= $menu['id'] ?>" /><br />
-        <input type="submit" value="Envoyer" />
+        <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
     </p>
 </form>
 
