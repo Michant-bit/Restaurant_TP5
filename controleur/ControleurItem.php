@@ -3,7 +3,7 @@
 require_once 'modele/Item.php';
 require_once 'vue/Vue.php';
 
-class ControleurCommentaire {
+class ControleurItem {
 
     private $item;
 
@@ -38,7 +38,7 @@ class ControleurCommentaire {
         // Lire l'item afin d'obtenir le id du menu associé
         $item = $this->item->getItem($id);
         // Supprimer l'item à l'aide du modèle
-        $this->item->deleteItem($id);
+        $this->item->supprimerItem($id);
         //Recharger la page pour mettre à jour la liste des items associés
         header('Location: index.php?action=menu&id=' . $item['menu_id']);
     }

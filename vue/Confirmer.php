@@ -1,5 +1,5 @@
-<?php $titre = "Suppression de menus" ?>
-<?php ob_start(); ?>
+<?php $this->$titre = "Suppression de menus" ?>
+
 <menu>
     <header>
         <div class="alert alert-danger" role="alert">Voulez-vous vraiment supprimer l'item ?</div>
@@ -30,6 +30,3 @@
         <button type="submit" class="btn btn-light">Annuler</button>
     </form>
 </menu>
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require 'vue/Gabarit.php'; ?>

@@ -31,76 +31,77 @@ class Routeur {
                         $erreur = isset($_GET['erreur']) ? $_GET['erreur'] : '';
                         $this->ctrlMenu->menu($id, $erreur);
                     } else
-                        throw new Exception("Identifiant d'article non valide");
-                } else if ($_GET['action'] == 'commentaire') {
+                        throw new Exception("Identifiant de menu non valide");
+                } else if ($_GET['action'] == 'item') {
                     // Tester l'existence des paramètres requis
-                    $article_id = intval($this->getParametre($_POST, 'article_id'));
-                    if ($article_id != 0) {
-                        $this->getParametre($_POST, 'auteur');
-                        $this->getParametre($_POST, 'titre');
-                        $this->getParametre($_POST, 'texte');
-                        $this->getParametre($_POST, 'prive');
-                        // Enregistrer le comentaire
-                        $this->ctrlCommentaire->commentaire($_POST);
+                    $menu_id = intval($this->getParametre($_POST, 'menu_id'));
+                    if ($menu_id != 0) {
+                        $this->getParametre($_POST, 'nom');
+                        $this->getParametre($_POST, 'prix');
+                        $this->getParametre($_POST, 'details');
+                        // Enregistrer l'item
+                        $this->ctrlItem->item($_POST);
                     } else
-                        throw new Exception("Identifiant d'article non valide");
+                        throw new Exception("Identifiant de menu non valide");
                 } else if ($_GET['action'] == 'confirmer') {
                     $id = intval($this->getParametre($_GET, 'id'));
                     if ($id != 0) {
-                        $this->ctrlCommentaire->confirmer($id);
+                        $this->ctrlItem->confirmer($id);
                     } else
-                        throw new Exception("Identifiant de commentaire non valide");
+                        throw new Exception("Identifiant d'item non valide");
                 } else if ($_GET['action'] == 'supprimer') {
                     $id = intval($this->getParametre($_POST, 'id'));
                     if ($id != 0) {
-                        $this->ctrlCommentaire->supprimer($id);
+                        $this->ctrlItem->supprimer($id);
                     } else
-                        throw new Exception("Identifiant de commentaire non valide");
-                } else if ($_GET['action'] == 'nouvelArticle') {
-                    $this->ctrlArticle->nouvelArticle();
+                        throw new Exception("Identifiant d'item non valide");
+                } else if ($_GET['action'] == 'nouveauMenu') {
+                    $this->ctrlMenu->nouveauMenu();
                 } else if ($_GET['action'] == 'ajouter') {
                     // Tester l'existence des paramètres requis
                     $utilisateur_id = intval($this->getParametre($_POST, 'utilisateur_id'));
                     if ($utilisateur_id != 0) {
-                        $this->getParametre($_POST, 'titre');
-                        $this->getParametre($_POST, 'sous_titre');
-                        $this->getParametre($_POST, 'texte');
-                        $this->getParametre($_POST, 'type');
-                        // Enregistrer l'article
-                        $this->ctrlArticle->ajouter($_POST);
+                        $this->getParametre($_POST, 'nom');
+                        $this->getParametre($_POST, 'date_debut');
+                        $this->getParametre($_POST, 'date_fin');
+                        $this->getParametre($_POST, 'details');
+                        $this->getParametre($_POST, 'email');
+                        // Enregistrer le menu
+                        $this->ctrlMenu->ajouter($_POST);
                     } else
                         throw new Exception("Identifiant d'utilisateur non valide");
-                } else if ($_GET['action'] == 'miseAJourArticle') {
+                } else if ($_GET['action'] == 'miseAJourMenu') {
                     // Tester l'existence des paramètres requis
                     $id = intval($this->getParametre($_POST, 'id'));
                     if ($id != 0) {
                         $utilisateur_id = intval($this->getParametre($_POST, 'utilisateur_id'));
                         if ($utilisateur_id != 0) {
                             //Vérifier l'existence des paramètres
-                            $this->getParametre($_POST, 'titre');
-                            $this->getParametre($_POST, 'sous_titre');
-                            $this->getParametre($_POST, 'texte');
-                            $this->getParametre($_POST, 'type');
-                            // Enregistrer l'article
-                            $this->ctrlArticle->miseAJourArticle($_POST);
+                            $this->getParametre($_POST, 'nom');
+                            $this->getParametre($_POST, 'date_debut');
+                            $this->getParametre($_POST, 'date_fin');
+                            $this->getParametre($_POST, 'details');
+                            $this->getParametre($_POST, 'email');
+                            // Enregistrer le menu
+                            $this->ctrlMenu->miseAJourMenu($_POST);
                         } else
                             throw new Exception("Identifiant d'utilisateur non valide");
                     } else
-                        throw new Exception("Identifiant d'article non valide");
-                } else if ($_GET['action'] == 'modifierArticle') {
+                        throw new Exception("Identifiant de menu non valide");
+                } else if ($_GET['action'] == 'modifierMenu') {
                     $id = intval($this->getParametre($_GET, 'id'));
                     if ($id != 0) {
-                        $this->ctrlArticle->modifierArticle($id);
+                        $this->ctrlMenu->modifierMenu($id);
                     } else
-                        throw new Exception("Identifiant d'article non valide");
+                        throw new Exception("Identifiant de menu non valide");
                 } else if ($_GET['action'] == 'quelsTypes') {
                     $term = $this->getParametre($_GET, 'term');
                     $this->ctrlType->quelsTypes($term);
                 } else {
                     throw new Exception("Action non valide");
                 }
-            } else // aucune action définie : affichage des articles par défaut
-                $this->ctrlArticle->articles();
+            } else // aucune action définie : affichage des menus par défaut
+                $this->ctrlMenu->menus();
         } catch (Exception $e) {
             $this->erreur($e->getMessage());
         }

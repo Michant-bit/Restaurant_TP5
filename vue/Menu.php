@@ -1,6 +1,5 @@
-<?php $titre = "Création de menus" ?>
+<?php $this->$titre = "Création de menus" ?>
 
-<?php ob_start(); ?>
 <menu>
     <header>
         <a href="<?= "index.php?action=menu&id=" . $menu['id'] ?>">
@@ -68,8 +67,4 @@
         <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
     </p>
 </form>
-
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require 'vue/Gabarit.php'; ?>
 

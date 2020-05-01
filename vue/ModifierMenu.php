@@ -1,10 +1,9 @@
-<?php $titre = "Modification de menus" ?>
+<?php $this->$titre = "Modification de menus" ?>
 
-<?php ob_start(); ?>
 <header>
     <p class="lead">Modifier un menu de l'utilisateur :</p>
 </header>
-<form action= "index.php?action=modifierMenu" method="post">
+<form action= "index.php?action=miseAJourMenu" method="post">
     <p>
         <div class="row">
             <div class="col-sm-5">
@@ -35,7 +34,3 @@
         <button type="submit" class="btn btn-primary mb-2">Modifier</button>
     </p>
 </form>
-
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require 'vue/Gabarit.php'; ?>

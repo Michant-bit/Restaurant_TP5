@@ -1,7 +1,5 @@
 <?php $titre = 'À propos'; ?>
 
-<?php ob_start(); ?>
-
 <ul class="list-unstyled">
     <li class="text-muted">Créé par Antoine La Boissière</li>
     <li class="text-muted">420-4A4 MO Web et Bases de données</li>
@@ -47,6 +45,3 @@
         </td>
     </tr>
 </table>
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require 'vue/Gabarit.php'; ?>

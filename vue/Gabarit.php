@@ -28,6 +28,9 @@
               <li class="nav-item">
                   <a class="nav-link" href="index.php?action=apropos">À propos</a>
               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="tests.php">Tests</a>
+              </li>
             </ul>
             <span class="navbar-text">
               Créé par Antoine La Boissière

@@ -1,6 +1,5 @@
-<?php $titre = "Création de menus" ?>
+<?php $this->$titre = "Création de menus" ?>
 
-<?php ob_start(); ?>
 <header>
     <p class="lead">Ajouter un menu de l'utilisateur :</p>
 </header>
@@ -35,7 +34,3 @@
         <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
     </p>
 </form>
-
-<?php $contenu = ob_get_clean(); ?>
-
-<?php require 'vue/Gabarit.php'; ?>

@@ -9,7 +9,7 @@ class Vue {
 
     public function __construct($action) {
         // Détermination du nom du fichier vue à partir de l'action
-        $this->fichier = "vue/vue" . $action . ".php";
+        $this->fichier = "vue/" . $action . ".php";
     }
 
     // Génère et affiche la vue
