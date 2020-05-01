@@ -54,8 +54,8 @@ class ControleurMenu {
     }
 
 // Enregistre le menu modifié et retourne à la liste des menus
-    public function miseAJourMenu($menu) {
-        $this->menu->updateMenu($menu);
+    public function miseAJourMenu($menu, $id) {
+        $this->menu->updateMenu($menu, $id);
         $this->menus();
     }
 

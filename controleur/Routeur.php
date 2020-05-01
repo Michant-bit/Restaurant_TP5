@@ -83,7 +83,7 @@ class Routeur {
                             $this->getParametre($_POST, 'details');
                             $this->getParametre($_POST, 'email');
                             // Enregistrer le menu
-                            $this->ctrlMenu->miseAJourMenu($_POST);
+                            $this->ctrlMenu->miseAJourMenu($_POST, $id);
                         } else
                             throw new Exception("Identifiant d'utilisateur non valide");
                     } else
