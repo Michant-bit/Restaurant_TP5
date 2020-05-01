@@ -9,7 +9,11 @@
                 <h4><?= $menu['nom'] ?></h4>
             </a>
             <h6><?= $menu['details'] ?></h6>
-            De <time><?= $menu['date_debut'] ?></time> à <time><?= $menu['date_fin'] ?></time>, par utilisateur #<?= $menu['utilisateur_id'] ?>
+            De <time><?= $menu['date_debut'] ?></time> à <time><?= $menu['date_fin'] ?></time>, par <?= $menu['email'] ?>
+            <br /><br />
+            <a href="<?= "index.php?action=modifier&id=" . $menu['id'] ?>">
+                <button type="submit" class="btn btn-primary mb-2">Modifier</button>
+            </a>
         </header>
     </menu>
     <hr />

@@ -35,7 +35,7 @@
                 </a>
             </td>
             <td><?= $item['nom'] ?></td>
-            <td><?= $item['prix'] ?></td>
+            <td><?= number_format((float) $item['prix'] , 2, '.', '')?></td>
             <td><?= $item['details'] ?></td>
         </tr>
     <?php endforeach; ?>
@@ -45,6 +45,7 @@
 <header>
         <p class="lead">Ajouter un item</p>
 </header>
+<?= ($erreur == 'dollar') ? '<div class="alert alert-danger" role="alert">Veuillez entrer un prix valide (Ex. 12.99)</div>' : '' ?> 
 <form action="index.php?action=item" method="post">
     <p>
         <div class="row">
@@ -53,7 +54,7 @@
                 <input type="text" class="form-control" name="nom" id="nom"/> <br />
             </div>
             <div class="col-sm-1">
-                <label for="prix">Prix</label>
+                <label for="prix">Prix($)</label>
                 <input type="double" class="form-control" name="prix" id="prix"/> <br />
             </div>
         </div>
@@ -64,7 +65,7 @@
             </div>
         </div>
         <input type="hidden" name="menu_id" value="<?= $menu['id'] ?>" /><br />
-        <button type="submit" class="btn btn-primary mb-2">Envoyer</button>
+        <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
     </p>
 </form>
 

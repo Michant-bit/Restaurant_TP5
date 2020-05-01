@@ -42,7 +42,7 @@ try {
                 throw new Exception("Aucun identifiant de menu");
             }
 
-        // Confirmer la suppression
+        // Confirmer la suppression d'un item
         } else if ($_GET['action'] == 'confirmer') {
             if (isset($_GET['id'])) {
                 $id = intval($_GET['id']);
@@ -73,10 +73,40 @@ try {
         } else if ($_GET['action'] == 'nouveauMenu') {
             nouveauMenu();
 
+        // Modifier un menu
+        } else if ($_GET['action'] == 'modifier') {
+            if (isset($_GET['id'])) {
+                // intval renvoie la valeur numérique du paramètre ou 0 en cas d'échec
+                $id = intval($_GET['id']);
+                if ($id != 0) {
+                    modifier($id);
+                } else {
+                    throw new Exception("Identifiant de menu incorrect");
+                }
+            } else {
+                throw new Exception("Aucun identifiant de menu");
+            }
+
         // Enregistrer le menu
         } else if ($_GET['action'] == 'ajouter') {
             $menu = $_POST;
             ajouter($menu);
+
+        // Modifier le menu
+        } else if ($_GET['action'] == 'modifierMenu') {
+            $menu = $_POST;
+            if (isset($_POST['id'])) {
+                // intval renvoie la valeur numérique du paramètre ou 0 en cas d'échec
+                $id = intval($_POST['id']);
+                if ($id != 0) {
+                    modifierMenu($menu, $id);
+                } else {
+                    throw new Exception("Identifiant de menu incorrect");
+                }
+            } else {
+                throw new Exception("Aucun identifiant de menu");
+            }
+            
 
         // Chercher les types pour l'autocomplete
         } else if ($_GET['action'] == 'quelsTypes') {

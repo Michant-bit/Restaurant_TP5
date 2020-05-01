@@ -23,10 +23,7 @@
                 <a class="nav-link" href="index.php">Acceuil<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php?action=nouveauMenu">Ajouter</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="vue/Modifier.php">Modifier</a>
+                <a class="nav-link" href="index.php?action=nouveauMenu">Ajouter un menu</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="index.php?action=apropos">À propos</a>

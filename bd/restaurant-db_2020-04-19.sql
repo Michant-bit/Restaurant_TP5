@@ -2,10 +2,10 @@
 -- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 13 fév. 2020 à 17:35
--- Version du serveur :  8.0.18
--- Version de PHP :  7.4.0
+-- Host: 127.0.0.1:3306
+-- Generation Time: Apr 19, 2020 at 04:22 PM
+-- Server version: 8.0.18
+-- PHP Version: 7.4.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,27 +19,39 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `restaurant`
+-- Database: `restaurant`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `items`
+-- Table structure for table `items`
 --
 
 CREATE TABLE `items` (
   `id` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `Prix` double NOT NULL DEFAULT '0',
+  `prix` double NOT NULL DEFAULT '0',
   `details` text NOT NULL,
   `menu_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`id`, `nom`, `prix`, `details`, `menu_id`) VALUES
+(1, 'Fromage chédar', 2.5, '350g de fromage chédar coupé en tranche', 1),
+(2, 'Sauce tomate', 0.99, '100ml de sauce tomate fait maison', 1),
+(6, 'Steak', 99.08, 'Un bon steak', 3),
+(7, 'Sauce BBQ', 123.01, 'De la sauce maison BBQ', 3),
+(11, 'Bacon', 10, 'Bacon', 3),
+(12, 'Fromage chédar', 12.99, 'Du fromage chédar', 2);
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `menus`
+-- Table structure for table `menus`
 --
 
 CREATE TABLE `menus` (
@@ -48,21 +60,23 @@ CREATE TABLE `menus` (
   `date_debut` date NOT NULL,
   `date_fin` date NOT NULL,
   `details` text NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `utilisateur_id` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `menus`
+-- Dumping data for table `menus`
 --
 
-INSERT INTO `menus` (`id`, `nom`, `date_debut`, `date_fin`, `details`, `utilisateur_id`) VALUES
-(1, 'Steak', '2020-02-13', '2020-02-14', 'Un steak de très bon goût', 1),
-(2, 'Frites', '2020-02-27', '2020-02-28', 'Des frites', 1);
+INSERT INTO `menus` (`id`, `nom`, `date_debut`, `date_fin`, `details`, `email`, `utilisateur_id`) VALUES
+(1, 'Lasagne Bolognaise', '2020-02-13', '2020-02-14', 'Une lasagne à la sauce tomate, soupoudrée de fromage chédar et de bacon', 'antoine.laboissiere@gmail.com', 1),
+(2, 'Pizza Québécoise', '2020-02-27', '2020-02-28', 'Trois fromages, pizza de la belle province du Québec', 'antoine.laboissiere@gmail.com', 1),
+(3, 'Hamburger Steak', '2020-04-30', '2020-04-29', 'Un burger américain à la sauce BBQ et baconss', 'antoine.laboissiere@gmail.com', 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateurs`
+-- Table structure for table `utilisateurs`
 --
 
 CREATE TABLE `utilisateurs` (
@@ -73,70 +87,70 @@ CREATE TABLE `utilisateurs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `utilisateurs`
+-- Dumping data for table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `identifiant`, `mot_de_passe`) VALUES
 (1, 'Antoine La Boissière', '201830676', 'root');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `items`
+-- Indexes for table `items`
 --
 ALTER TABLE `items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `menu_id` (`menu_id`);
 
 --
--- Index pour la table `menus`
+-- Indexes for table `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`),
   ADD KEY `utilisateur_id` (`utilisateur_id`);
 
 --
--- Index pour la table `utilisateurs`
+-- Indexes for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `items`
+-- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT pour la table `menus`
+-- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT pour la table `utilisateurs`
+-- AUTO_INCREMENT for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `items`
+-- Constraints for table `items`
 --
 ALTER TABLE `items`
   ADD CONSTRAINT `items_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `menus` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 --
--- Contraintes pour la table `menus`
+-- Constraints for table `menus`
 --
 ALTER TABLE `menus`
   ADD CONSTRAINT `menus_ibfk_1` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
