@@ -30,7 +30,7 @@ class Item extends Modele {
 
 // Supprimer un item
     public function supprimerItem($id){
-        $sql = 'UPDATE items SET efface = 1 WHERE id = ?';
+        $sql = 'DELETE FROM items WHERE id = ?';
         $resultat = $this->executerRequete($sql, [$id]);
         return $resultat;
     }
