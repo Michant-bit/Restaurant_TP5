@@ -1,4 +1,4 @@
-<?php $this->$titre = 'Erreur'; ?>
+<?php $this->titre = 'Erreur'; ?>
 
 <p><?= $msgErreur ?></p>
 

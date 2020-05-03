@@ -1,4 +1,4 @@
-<?php $this->$titre = "Création de menus" ?>
+<?php $this->titre = "Création de menus" ?>
 
 <?php foreach ($menus as $menu):
     ?>

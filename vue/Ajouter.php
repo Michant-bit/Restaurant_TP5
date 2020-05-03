@@ -1,4 +1,4 @@
-<?php $this->$titre = "Création de menus" ?>
+<?php $this->titre = "Création de menus" ?>
 
 <header>
     <p class="lead">Ajouter un menu de l'utilisateur :</p>
