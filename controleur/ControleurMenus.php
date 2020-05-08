@@ -25,6 +25,7 @@ class ControleurMenus extends Controleur {
         $idMenu = $this->requete->getParametreId("id");
         $menu = $this->menu->getMenu($idMenu);
         $erreur = $this->requete->getSession()->existeAttribut("erreur") ? $this->requete->getsession()->getAttribut("erreur") : '';
+        $items = $this->item->getItems($idMenu);
         $this->genererVue(['menu' => $menu, 'items' => $items, 'erreur' => $erreur]);
     }
 
