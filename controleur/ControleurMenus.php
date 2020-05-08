@@ -35,6 +35,7 @@ class ControleurMenus extends Controleur {
 
 // Enregistre le nouveau menu et retourne à la liste des menus
     public function nouveauMenu() {
+        $menu['email'] = $this->requete->getParametre('email');
         $validation_email = filter_var($menu['email'], FILTER_VALIDATE_EMAIL);
         if ($validation_email) {
             $menu['nom'] = $this->requete->getParametre('nom');
@@ -43,9 +44,10 @@ class ControleurMenus extends Controleur {
             $menu['details'] = $this->requete->getParametre('details');
             $menu['email'] = $this->requete->getParametre('email');
             $menu['utilisateur_id'] = $this->requete->getParametreId('utilisateur_id');
-            $this->menu->setMenu($menu);
+            $this->menu->setMenus($menu);
         } else {
-            $this->requete->getSession()->setAttribut("message", "Erreur d'email");
+            $this->requete->getSession()->setAttribut('erreur', 'email');
+            $this->rediriger('Menus', 'lire/' . $menu['id']);
         }
         $this->executerAction('index');
     }
@@ -59,6 +61,7 @@ class ControleurMenus extends Controleur {
 
 // Enregistre le menu modifié et retourne à la liste des menus
     public function miseAJour() {
+        $id = $this->requete->getParametreId('id');
         $menu['id'] = $this->requete->getParametreId('id');
         $menu['nom'] = $this->requete->getParametre('nom');
         $menu['date_debut'] = $this->requete->getParametre('date_debut');
@@ -66,7 +69,7 @@ class ControleurMenus extends Controleur {
         $menu['details'] = $this->requete->getParametre('details');
         $menu['email'] = $this->requete->getParametre('email');
         $menu['utilisateur_id'] = $this->requete->getParametreId('utilisateur_id');
-        $this->menu->updateMenu($menu);
+        $this->menu->updateMenu($menu, $id);
         $this->executerAction('index');
     }
 

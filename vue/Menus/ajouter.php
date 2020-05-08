@@ -4,7 +4,7 @@
     <p class="lead">Ajouter un menu de l'utilisateur :</p>
 </header>
 <form action="Menus/nouveauMenu" method="post">
-<?= ($erreurEmail == 'email') ? '<div class="alert alert-danger" role="alert">Veuillez entrer un email valide (Ex. a@b.c)</div>' : '' ?> 
+<?= ($erreur == 'email') ? '<div class="alert alert-danger" role="alert">Veuillez entrer un email valide (Ex. a@b.c)</div>' : '' ?> 
     <p>
         <div class="row">
             <div class="col-sm-5">

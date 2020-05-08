@@ -10,6 +10,12 @@ class ControleurItems extends Controleur{
     public function __construct() {
         $this->item = new Item();
     }
+    
+// N'est pas content si non utilisé
+    public function index() {
+        $items = $this->item->getItems();
+        $this->genererVue(['items' => $items]);
+    }
 
 // Ajoute un item à un menu
     public function ajouter() {
