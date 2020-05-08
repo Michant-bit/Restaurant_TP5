@@ -1,4 +1,1 @@
-<?php $this->titre = 'Erreur'; ?>
-
-<p><?= $msgErreur ?></p>
-
+<p><?= $this->nettoyer($msgErreur) ?></p>
