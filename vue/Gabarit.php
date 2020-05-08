@@ -2,6 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8"/>
+        <base href="<?= $racineWeb ?>" >
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
         <title><?= $titre ?></title>
@@ -50,7 +51,7 @@
                     echo '<p class="erreur">' . $message . '</p><br/>';
             }
             ?>
-          <div>
+          <div id="contenu">
             <?= $contenu ?>
           <div>
         </div>
