@@ -1,6 +1,6 @@
 <?php
 
-require_once 'modele/Modele.php';
+require_once 'framework/Modele.php';
 
 /**
  * Fournit les services d'accès aux items
@@ -33,6 +33,15 @@ class Item extends Modele {
         $sql = 'DELETE FROM items WHERE id = ?';
         $resultat = $this->executerRequete($sql, [$id]);
         return $resultat;
+    }
+
+// Réactive un item
+    public function restoreItem($id) {
+        $sql = 'UPDATE items'
+                . ' SET efface = 0'
+                . ' WHERE id = ?';
+        $result = $this->executerRequete($sql, [$id]);
+        return $result;
     }
 
 // Ajouter un item à un menu

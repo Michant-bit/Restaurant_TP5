@@ -1,4 +1,4 @@
-<?php $this->titre = 'À propos'; ?>
+<?php $titre = 'À propos'; ?>
 
 <ul class="list-unstyled">
     <li class="text-muted">Créé par Antoine La Boissière</li>

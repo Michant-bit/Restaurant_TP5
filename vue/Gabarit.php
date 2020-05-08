@@ -23,10 +23,10 @@
                 <a class="nav-link" href="index.php">Acceuil<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php?action=nouveauMenu">Ajouter un menu</a>
+                <a class="nav-link" href="Menus/ajouter">Ajouter un menu</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="index.php?action=apropos">À propos</a>
+                  <a class="nav-link" href="apropos">À propos</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="tests.php">Tests</a>
@@ -44,6 +44,12 @@
           <header>
             <a href="index.php"></a>
           </header>
+          <?php
+            // Vérifier s'il y a un message d'avertissement à afficher
+            if (isset($message) and $message != '') {
+                    echo '<p class="erreur">' . $message . '</p><br/>';
+            }
+            ?>
           <div>
             <?= $contenu ?>
           <div>

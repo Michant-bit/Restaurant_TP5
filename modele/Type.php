@@ -1,6 +1,6 @@
 <?php
 
-require_once 'modele/Modele.php';
+require_once 'framework/Modele.php';
 
 /**
  * Fournit les services d'accès aux types de menus 
