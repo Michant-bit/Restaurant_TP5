@@ -1,8 +1,9 @@
 <?php
 
+require_once 'framework/Controleur.php';
 require_once 'modele/Type.php';
 
-class ControleurType {
+class ControleurTypes extends Controleur {
 
     private $type;
 
