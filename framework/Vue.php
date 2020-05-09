@@ -48,7 +48,8 @@ class Vue {
         $vue = $this->genererFichier('vue/Gabarit.php',
                 array('titre' => $this->titre, 'contenu' => $contenu,
                     'racineWeb' => $racineWeb,
-                    'message' => $donnees['message']));
+                    //'message' => $donnees['message']
+                ));
         // Renvoi de la vue générée au navigateur
         echo $vue;
     }

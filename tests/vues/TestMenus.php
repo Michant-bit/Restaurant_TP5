@@ -1,6 +1,6 @@
 <?php
 
-require_once 'vue/Vue.php';
+require_once 'framework/Vue.php';
 $menus = [
     [
         'id' => '100',
@@ -21,6 +21,6 @@ $menus = [
         'utilisateur_id' => '202'
     ]
 ];
-$vue = new Vue('Menus');
+$vue = new Vue('index', 'Menus');
 $vue->generer(['menus' => $menus]);
 

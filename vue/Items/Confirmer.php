@@ -24,8 +24,7 @@
         <input type="hidden" name="id" value="<?= $this->nettoyer($item['id']) ?>" />
         <button type="submit" class="btn btn-secondary">Confirmer</button>
     </form>
-    <form action="index.php" style="display:inline-block;" method="get" >
-        <input type="hidden" name="action" value="menu" />
+    <form action="Menus/lire" style="display:inline-block;" method="post" >
         <input type="hidden" name="id" value="<?= $this->nettoyer($item['menu_id']) ?>" />
         <button type="submit" class="btn btn-light">Annuler</button>
     </form>

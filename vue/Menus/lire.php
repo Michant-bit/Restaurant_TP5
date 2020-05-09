@@ -2,7 +2,7 @@
 
 <menu>
     <header>
-        <a href="<?= "index.php?action=menu&id=" . $this->nettoyer($menu['id']) ?>">
+        <a href="<?= $this->nettoyer($menu['id']) ?>">
             <h4><?= $this->nettoyer($menu['nom']) ?></h4>
         </a>
         <h6><?= $this->nettoyer($menu['details']) ?></h6>
