@@ -42,4 +42,11 @@ class Menu extends Modele {
         return $resultat;
     }
 
+// Supprimer un menu
+    public function supprimerMenu($id){
+        $sql = 'DELETE FROM menus WHERE id = ?';
+        $resultat = $this->executerRequete($sql, [$id]);
+        return $resultat;
+    }
+
 }

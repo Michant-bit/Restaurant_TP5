@@ -13,6 +13,9 @@
             <a href="Menus/modifier/<?= $this->nettoyer($menu['id']) ?>">
                 <button type="submit" class="btn btn-primary mb-2">Modifier</button>
             </a>
+            <a href="Menus/supprimer/<?= $this->nettoyer($menu['id']) ?>">
+                <button type="submit" class="btn btn-danger mb-2">Supprimer</button>
+            </a>
         </header>
     </menu>
     <hr />

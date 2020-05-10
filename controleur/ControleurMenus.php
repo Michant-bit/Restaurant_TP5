@@ -64,6 +64,15 @@ class ControleurMenus extends Controleur {
         $this->genererVue(['menu' => $menu]);
     }
 
+// Supprimer un menu existant    
+    public function supprimer() {
+        $id = $this->requete->getParametreId("id");
+        $menu = $this->menu->getMenu($id);
+        $this->menu->supprimerMenu($id);
+        //Recharger la page pour mettre à jour la liste des menus associés
+        $this->executerAction('index');
+    }
+
 // Enregistre le menu modifié et retourne à la liste des menus
     public function miseAJour() {
         $id = $this->requete->getParametreId('id');
