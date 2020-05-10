@@ -24,6 +24,7 @@
     <li>Pour ajouter des items, simplement cliquer sur le nom du menu.<br></li>
     <ul>
         <li>Un tableau des items déjà présents dans la rectte sera présenté. Ces items peuvent être supprimer.</li>
+        <li>Les items supprimés peuvent alors être rétablis ou supprimés définitivement de la liste.</li>
         <li>Un item ne peut pas être modifié.<br></li>
     </ul>
 </ul>

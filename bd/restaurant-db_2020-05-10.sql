@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 19, 2020 at 04:22 PM
+-- Generation Time: May 10, 2020 at 04:21 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.4.0
 
@@ -33,6 +33,7 @@ CREATE TABLE `items` (
   `nom` varchar(255) NOT NULL,
   `prix` double NOT NULL DEFAULT '0',
   `details` text NOT NULL,
+  `efface` tinyint(4) NOT NULL DEFAULT '0',
   `menu_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,13 +41,14 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `nom`, `prix`, `details`, `menu_id`) VALUES
-(1, 'Fromage chédar', 2.5, '350g de fromage chédar coupé en tranche', 1),
-(2, 'Sauce tomate', 0.99, '100ml de sauce tomate fait maison', 1),
-(6, 'Steak', 99.08, 'Un bon steak', 3),
-(7, 'Sauce BBQ', 123.01, 'De la sauce maison BBQ', 3),
-(11, 'Bacon', 10, 'Bacon', 3),
-(12, 'Fromage chédar', 12.99, 'Du fromage chédar', 2);
+INSERT INTO `items` (`id`, `nom`, `prix`, `details`, `efface`, `menu_id`) VALUES
+(1, 'Fromage chédar', 2.5, '350g de fromage chédar coupé en tranche', 0, 1),
+(2, 'Sauce tomate', 0.99, '100ml de sauce tomate fait maison', 0, 1),
+(6, 'Steak', 99.08, 'Un bon steak', 0, 3),
+(7, 'Sauce BBQ', 123.01, 'De la sauce maison BBQ', 0, 3),
+(11, 'Bacon', 10, 'Bacon', 0, 3),
+(12, 'Fromage chédar', 12.99, 'Du fromage chédar', 0, 2),
+(18, 'Fromage chédar', 12.99, 'Du fromage chédar', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,7 @@ CREATE TABLE `menus` (
 INSERT INTO `menus` (`id`, `nom`, `date_debut`, `date_fin`, `details`, `email`, `utilisateur_id`) VALUES
 (1, 'Lasagne Bolognaise', '2020-02-13', '2020-02-14', 'Une lasagne à la sauce tomate, soupoudrée de fromage chédar et de bacon', 'antoine.laboissiere@gmail.com', 1),
 (2, 'Pizza Québécoise', '2020-02-27', '2020-02-28', 'Trois fromages, pizza de la belle province du Québec', 'antoine.laboissiere@gmail.com', 1),
-(3, 'Hamburger Steak', '2020-04-30', '2020-04-29', 'Un burger américain à la sauce BBQ et baconss', 'antoine.laboissiere@gmail.com', 1);
+(3, 'Hamburger Steak', '2020-04-30', '2020-04-29', 'Un burger américain à la sauce BBQ et soupoudré de bacons', 'antoine.laboissiere@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -125,13 +127,13 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `utilisateurs`

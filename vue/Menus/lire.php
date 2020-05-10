@@ -57,7 +57,9 @@
                 </td>
                 <td colspan="3">
                     <div class="text-muted">
-                        Rétablir l'item supprimé ?
+                        Rétablir l'item supprimé ? [
+                            <?= $this->nettoyer($item['nom']) ?>
+                        ]
                     </div>
                 </td>
             </tr>
