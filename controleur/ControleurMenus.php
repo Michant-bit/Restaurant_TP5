@@ -30,7 +30,8 @@ class ControleurMenus extends Controleur {
     }
 
     public function ajouter() {
-        $this->genererVue();
+        $erreur = $this->requete->getSession()->existeAttribut("erreur") ? $this->requete->getsession()->getAttribut("erreur") : '';
+        $this->genererVue(['erreur' => $erreur]);
     }
 
 // Enregistre le nouveau menu et retourne à la liste des menus
@@ -45,6 +46,10 @@ class ControleurMenus extends Controleur {
             $menu['email'] = $this->requete->getParametre('email');
             $menu['utilisateur_id'] = $this->requete->getParametreId('utilisateur_id');
             $this->menu->setMenus($menu);
+            // Éliminer un code d'erreur éventuel
+            if ($this->requete->getSession()->existeAttribut('erreur')) {
+                $this->requete->getsession()->setAttribut('erreur', '');
+            }
         } else {
             $this->requete->getSession()->setAttribut('erreur', 'email');
             $this->rediriger('Menus', 'ajouter');
