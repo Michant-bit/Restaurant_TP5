@@ -33,9 +33,15 @@
                   <a class="nav-link" href="tests.php">Tests</a>
               </li>
             </ul>
-            <span class="navbar-text">
-              Créé par Antoine La Boissière
-            </span>
+            <?php if (false) : ?>
+              <form class="form-inline">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Se déconnecter</button>
+              </form>
+            <?php else : ?>
+              <form class="form-inline" action="Utilisateurs/index" method="post">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Se connecter</button>
+              </form>
+            <?php endif; ?>
           </div>
         </nav>
 
