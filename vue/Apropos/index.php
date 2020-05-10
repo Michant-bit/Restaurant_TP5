@@ -16,10 +16,11 @@
     <li>On y retrouve un lien pour créer un nouveau menu :</li>
     <ul>
         <li>La page de création d'un menu offre de créer son propre menu en spécifiant les items de la recette.</li>
-        <li>La personne qui veut laisser un commentaire doit s'identifier à l'aide d'un courriel valide :</li>
+        <li>La personne qui veut ajouter un menu doit s'identifier à l'aide d'un courriel valide :</li>
         <ul>
             <li>Un message est affiché si le courriel est invalide et le menu n'est alors pas enregistré.<br></li>
         </ul>
+        <li>Un menu peut être supprimer (Attention, aucun message de confirmation ne sera envoyé pour cette action)</li>
     </ul>
     <li>Pour ajouter des items, simplement cliquer sur le nom du menu.<br></li>
     <ul>

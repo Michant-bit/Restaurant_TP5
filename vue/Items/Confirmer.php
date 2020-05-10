@@ -1,4 +1,4 @@
-<?php $this->titre = "Suppression de menus" ?>
+<?php $this->titre = "Suppression d'item" ?>
 
 <menu>
     <header>
