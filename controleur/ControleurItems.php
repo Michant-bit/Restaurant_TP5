@@ -60,6 +60,17 @@ class ControleurItems extends Controleur{
         $this->rediriger('Menus', 'lire/' . $item['menu_id']);
     }
 
+// Supprimer un item définitivement
+    public function supprimerDef() {
+        $id = $this->requete->getParametreId("id");
+        // Lire l'item afin d'obtenir le id du menu associé
+        $item = $this->item->getItem($id);
+        // Supprimer l'item à l'aide du modèle
+        $this->item->supprimerDefItem($id);
+        //Recharger la page pour mettre à jour la liste des items associés
+        $this->rediriger('Menus', 'lire/' . $item['menu_id']);
+    }
+
 // Rétablir un item
     public function retablir() {
         $id = $this->requete->getParametreId("id");

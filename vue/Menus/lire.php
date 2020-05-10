@@ -24,19 +24,44 @@
     </thead>
     <tbody>
     <?php foreach ($items as $item): ?>
-        <tr>
-            <td>
-                <a href="Items/confirmer/<?= $this->nettoyer($item['id']) ?>" >
-                    <svg class="bi bi-dash-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
-                        <path fill-rule="evenodd" d="M3.5 8a.5.5 0 01.5-.5h8a.5.5 0 010 1H4a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
-                    </svg>
-                </a>
-            </td>
-            <td><?= $this->nettoyer($item['nom']) ?></td>
-            <td><?= number_format((float) $this->nettoyer($item['prix']) , 2, '.', '')?></td>
-            <td><?= $this->nettoyer($item['details']) ?></td>
-        </tr>
+        <?php if ($item['efface'] == '0') : ?>
+            <tr>
+                <td>
+                    <a href="Items/confirmer/<?= $this->nettoyer($item['id']) ?>" >
+                        <svg class="bi bi-dash-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M3.5 8a.5.5 0 01.5-.5h8a.5.5 0 010 1H4a.5.5 0 01-.5-.5z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </td>
+                <td><?= $this->nettoyer($item['nom']) ?></td>
+                <td><?= number_format((float) $this->nettoyer($item['prix']) , 2, '.', '')?></td>
+                <td><?= $this->nettoyer($item['details']) ?></td>
+            </tr>
+        <?php else : ?>
+            <tr>
+                <td>
+                    <a href="Items/retablir/<?= $this->nettoyer($item['id']) ?>" title="Rétablir l'item" >
+                        <svg class="bi bi-arrow-counterclockwise" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M12.83 6.706a5 5 0 00-7.103-3.16.5.5 0 11-.454-.892A6 6 0 112.545 5.5a.5.5 0 11.91.417 5 5 0 109.375.789z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M7.854.146a.5.5 0 00-.708 0l-2.5 2.5a.5.5 0 000 .708l2.5 2.5a.5.5 0 10.708-.708L5.707 3 7.854.854a.5.5 0 000-.708z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                    <a href="Items/supprimerDef/<?= $this->nettoyer($item['id']) ?>" title="Supprimer définitivement l'item" >
+                        <svg class="bi bi-x-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"/>
+                            <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </a>
+                </td>
+                <td colspan="3">
+                    <div class="text-muted">
+                        Rétablir l'item supprimé ?
+                    </div>
+                </td>
+            </tr>
+        <?php endif; ?>
     <?php endforeach; ?>
     <tbody>
 </table>
