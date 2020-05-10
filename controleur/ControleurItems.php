@@ -20,6 +20,7 @@ class ControleurItems extends Controleur{
 // Ajoute un item à un menu
     public function ajouter() {
         $item['menu_id'] = $this->requete->getParametreId("menu_id");
+        $item['prix'] = $this->requete->getParametre("prix");
         $validation_dollar = filter_var($item['prix'], FILTER_VALIDATE_FLOAT);
         if ($validation_dollar) {
             $item['nom'] = $this->requete->getParametre('nom');

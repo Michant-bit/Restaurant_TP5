@@ -47,7 +47,7 @@ class ControleurMenus extends Controleur {
             $this->menu->setMenus($menu);
         } else {
             $this->requete->getSession()->setAttribut('erreur', 'email');
-            $this->rediriger('Menus', 'lire/' . $menu['id']);
+            $this->rediriger('Menus', 'ajouter');
         }
         $this->executerAction('index');
     }
