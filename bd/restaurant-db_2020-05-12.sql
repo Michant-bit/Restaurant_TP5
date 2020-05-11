@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 10, 2020 at 04:21 AM
+-- Generation Time: May 12, 2020 at 12:54 AM
 -- Server version: 8.0.18
 -- PHP Version: 7.4.0
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `items` (
   `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
+  `nomItem` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `prix` double NOT NULL DEFAULT '0',
-  `details` text NOT NULL,
+  `detailsItem` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `efface` tinyint(4) NOT NULL DEFAULT '0',
   `menu_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -41,14 +41,16 @@ CREATE TABLE `items` (
 -- Dumping data for table `items`
 --
 
-INSERT INTO `items` (`id`, `nom`, `prix`, `details`, `efface`, `menu_id`) VALUES
+INSERT INTO `items` (`id`, `nomItem`, `prix`, `detailsItem`, `efface`, `menu_id`) VALUES
 (1, 'Fromage chédar', 2.5, '350g de fromage chédar coupé en tranche', 0, 1),
 (2, 'Sauce tomate', 0.99, '100ml de sauce tomate fait maison', 0, 1),
 (6, 'Steak', 99.08, 'Un bon steak', 0, 3),
 (7, 'Sauce BBQ', 123.01, 'De la sauce maison BBQ', 0, 3),
 (11, 'Bacon', 10, 'Bacon', 0, 3),
 (12, 'Fromage chédar', 12.99, 'Du fromage chédar', 0, 2),
-(18, 'Fromage chédar', 12.99, 'Du fromage chédar', 1, 3);
+(18, 'Fromage chédar', 12.99, 'Du fromage chédar', 1, 3),
+(19, 'Boeuf', 30.99, 'Morceaux de viande de bœuf', 0, 8),
+(20, 'Champignon', 2.5, 'Des champignons', 0, 8);
 
 -- --------------------------------------------------------
 
@@ -73,7 +75,9 @@ CREATE TABLE `menus` (
 INSERT INTO `menus` (`id`, `nom`, `date_debut`, `date_fin`, `details`, `email`, `utilisateur_id`) VALUES
 (1, 'Lasagne Bolognaise', '2020-02-13', '2020-02-14', 'Une lasagne à la sauce tomate, soupoudrée de fromage chédar et de bacon', 'antoine.laboissiere@gmail.com', 1),
 (2, 'Pizza Québécoise', '2020-02-27', '2020-02-28', 'Trois fromages, pizza de la belle province du Québec', 'antoine.laboissiere@gmail.com', 1),
-(3, 'Hamburger Steak', '2020-04-30', '2020-04-29', 'Un burger américain à la sauce BBQ et soupoudré de bacons', 'antoine.laboissiere@gmail.com', 1);
+(3, 'Hamburger Steak', '2020-04-30', '2020-04-29', 'Un burger américain à la sauce BBQ et soupoudré de bacons', 'antoine.laboissiere@gmail.com', 1),
+(8, 'Boeuf Bourguignon', '2020-05-10', '2020-05-29', 'Le bœuf bourguignon est une recette de cuisine d\'estouffade de bœuf, traditionnelle de la cuisine bourguignonne, cuisinée au vin rouge de Bourgogne, avec une garniture de champignons, de petits oignons et de lardons.', 'antoine.laboissiere@gmail.com', 1),
+(14, 'Un menu d\'un autre utilisateur', '2020-05-11', '2020-05-29', 'Menu de André Pilon', 'prof@prof.com', 3);
 
 -- --------------------------------------------------------
 
@@ -83,7 +87,7 @@ INSERT INTO `menus` (`id`, `nom`, `date_debut`, `date_fin`, `details`, `email`, 
 
 CREATE TABLE `utilisateurs` (
   `id` int(11) NOT NULL,
-  `nom` varchar(255) NOT NULL,
+  `nom_utilisateur` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `identifiant` varchar(255) NOT NULL,
   `mot_de_passe` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -92,8 +96,10 @@ CREATE TABLE `utilisateurs` (
 -- Dumping data for table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `nom`, `identifiant`, `mot_de_passe`) VALUES
-(1, 'Antoine La Boissière', '201830676', 'root');
+INSERT INTO `utilisateurs` (`id`, `nom_utilisateur`, `identifiant`, `mot_de_passe`) VALUES
+(1, 'Antoine La Boissière', 'alaboissiere', 'etudiant'),
+(2, 'Administrateur', 'admin', 'admin'),
+(3, 'André Pilon', 'apilon', 'prof');
 
 --
 -- Indexes for dumped tables
@@ -127,19 +133,19 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
