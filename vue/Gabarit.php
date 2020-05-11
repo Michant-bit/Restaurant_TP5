@@ -24,6 +24,9 @@
               <li class="nav-item active">
                 <a class="nav-link" href="index.php">Acceuil<span class="sr-only"></span></a>
               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Items">Changer d'index</a>
+              </li>
               <?php if ($utilisateur != '') : ?>
                 <li class="nav-item">
                   <a class="nav-link" href="AdminMenus/ajouter">Ajouter un menu</a>

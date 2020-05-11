@@ -30,7 +30,7 @@
                 <input type="date" class="form-control" id="date_fin" name="date_fin"/><br />
             </div>
         </div>
-        <input type="hidden" name="utilisateur_id" value="1" /><br />
+        <input type="hidden" name="utilisateur_id" value="<?= $idUtilisateur ?>" /><br />
         <button type="submit" class="btn btn-primary mb-2">Ajouter</button>
     </p>
 </form>

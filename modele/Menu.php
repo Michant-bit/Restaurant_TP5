@@ -19,8 +19,8 @@ class Menu extends Modele {
 
 // Envoyer les informations des menus de la liste
     public function setMenus($menu) {
-        $sql = 'INSERT INTO menus (nom, date_debut, date_fin, details, email) VALUES(?, ?, ?, ?, ?)';
-        $resultat = $this->executerRequete($sql, [$menu['nom'], $menu['date_debut'], $menu['date_fin'], $menu['details'], $menu['email']]);
+        $sql = 'INSERT INTO menus (nom, date_debut, date_fin, details, email, utilisateur_id) VALUES(?, ?, ?, ?, ?, ?)';
+        $resultat = $this->executerRequete($sql, [$menu['nom'], $menu['date_debut'], $menu['date_fin'], $menu['details'], $menu['email'], $menu['utilisateur_id']]);
         return $resultat;
     }
 
