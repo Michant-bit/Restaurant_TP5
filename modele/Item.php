@@ -12,8 +12,15 @@ class Item extends Modele {
 // Renvoyer la liste des items associés au menu
     public function getItems($idMenu) {
         //$sql = 'SELECT * FROM items WHERE menu_id = ?';
-        $sql = 'SELECT i.id, i.nom, i.prix, i.details, i.efface, i.menu_id FROM items i INNER JOIN menus m ON i.menu_id = m.id WHERE menu_id = ?';
+        $sql = 'SELECT i.id, i.nomItem, i.prix, i.detailsItem, i.efface, i.menu_id FROM items i INNER JOIN menus m ON i.menu_id = m.id WHERE menu_id = ?';
         $items = $this->executerRequete($sql, [$idMenu]);
+        return $items;
+    }
+
+// Renvoyer la liste de tous les items
+    public function getAllItems() {
+        $sql = 'SELECT * FROM items i INNER JOIN menus m ON i.menu_id = m.id ORDER BY i.menu_id desc, i.id asc';
+        $items = $this->executerRequete($sql);
         return $items;
     }
 
@@ -52,8 +59,8 @@ class Item extends Modele {
 
 // Ajouter un item à un menu
     public function setItem($item) {
-        $sql = 'INSERT INTO items (nom, prix, details, menu_id) VALUES(?,?,?,?)';
-        $resultat = $this->executerRequete($sql, [$item['nom'], $item['prix'], $item['details'], $item['menu_id']]);
+        $sql = 'INSERT INTO items (nomItem, prix, detailsItem, menu_id) VALUES(?,?,?,?)';
+        $resultat = $this->executerRequete($sql, [$item['nomItem'], $item['prix'], $item['detailsItem'], $item['menu_id']]);
         return $resultat;
     }
 

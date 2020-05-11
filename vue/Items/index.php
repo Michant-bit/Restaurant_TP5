@@ -4,11 +4,18 @@
     ?>
     <item>
         <header>
-            <h4><?= $this->nettoyer($item['nom']) ?></h4>
-            <h6><?= $item['prix'] ?></h6>
-            <h6><?= $this->nettoyer($item['prix']) ?><?= $this->nettoyer($item['details']) ?></h6>
-            <small class="text-muted">Vous devez être connecté pour modifier ou supprimer cette item</small>
+            <?php if ($utilisateur != '') : ?>
+                <a href="AdminMenus/lire/<?= $this->nettoyer($item['menu_id']) ?>">
+                    <h4><?= $this->nettoyer($item['nomItem']) ?> (<?= $item['prix'] ?> $)</h4>
+                </a>
+            <?php else : ?>
+                <a href="Menus/lire/<?= $this->nettoyer($item['menu_id']) ?>">
+                    <h4><?= $this->nettoyer($item['nomItem']) ?> (<?= $item['prix'] ?> $)</h4>
+                </a>
+            <?php endif; ?>
+            <h6><?= $this->nettoyer($item['detailsItem']) ?></h6>
+            <h6>Du menu [<?= $this->nettoyer($item['nom']) ?>]</h6>
         </header>
-</item>
+    </item>
     <hr />
 <?php endforeach; ?>

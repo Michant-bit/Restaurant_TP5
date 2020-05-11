@@ -13,9 +13,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><?= $this->nettoyer($item['nom']) ?></td>
+                    <td><?= $this->nettoyer($item['nomItem']) ?></td>
                     <td><?= $this->nettoyer($item['prix']) ?></td>
-                    <td><?= $this->nettoyer($item['details']) ?></td>
+                    <td><?= $this->nettoyer($item['detailsItem']) ?></td>
                 </tr>
             </tbody>
         </table>

@@ -13,8 +13,17 @@ class ControleurItems extends Controleur{
     
 // N'est pas content si non utilisé
     public function index() {
-        $items = $this->item->getItems();
+        $items = $this->item->getAllItems();
         $this->genererVue(['items' => $items]);
+    }
+
+// Affiche les détails sur un item
+    public function lire() {
+        $idItem = $this->requete->getParametreId("id");
+        $item = $this->item->getItem($idItem);
+        $erreur = $this->requete->getSession()->existeAttribut("erreur") ? $this->requete->getsession()->getAttribut("erreur") : '';
+        $items = $this->item->getItems($idItem);
+        $this->genererVue(['item' => $item, 'erreur' => $erreur]);
     }
 
 }

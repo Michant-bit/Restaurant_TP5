@@ -34,9 +34,9 @@
                         </svg>
                     </a>
                 </td>
-                <td><?= $this->nettoyer($item['nom']) ?></td>
+                <td><?= $this->nettoyer($item['nomItem']) ?></td>
                 <td><?= number_format((float) $this->nettoyer($item['prix']) , 2, '.', '')?></td>
-                <td><?= $this->nettoyer($item['details']) ?></td>
+                <td><?= $this->nettoyer($item['detailsItem']) ?></td>
             </tr>
         <?php else : ?>
             <tr>
@@ -58,7 +58,7 @@
                 <td colspan="3">
                     <div class="text-muted">
                         Rétablir l'item supprimé ? [
-                            <?= $this->nettoyer($item['nom']) ?>
+                            <?= $this->nettoyer($item['nomItem']) ?>
                         ]
                     </div>
                 </td>

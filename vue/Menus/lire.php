@@ -25,9 +25,9 @@
     <?php foreach ($items as $item): ?>
         <?php if ($item['efface'] == '0') : ?>
             <tr>
-                <td><?= $this->nettoyer($item['nom']) ?></td>
+                <td><?= $this->nettoyer($item['nomItem']) ?></td>
                 <td><?= number_format((float) $this->nettoyer($item['prix']) , 2, '.', '')?></td>
-                <td><?= $this->nettoyer($item['details']) ?></td>
+                <td><?= $this->nettoyer($item['detailsItem']) ?></td>
             </tr>
         <?php endif; ?>
     <?php endforeach; ?>
