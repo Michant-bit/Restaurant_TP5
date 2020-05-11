@@ -5,6 +5,7 @@
         <base href="<?= $racineWeb ?>" >
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" />
+        <link href="../contenu/css/noSpace.css" rel="stylesheet" type="text/css" />
         <title><?= $titre ?></title>
     </head>
     <body>
@@ -24,8 +25,6 @@
                 <a class="nav-link" href="index.php">Acceuil<span class="sr-only"></span></a>
               </li>
               <?php if ($utilisateur != '') : ?>
-                
-              <?php else : ?>
                 <li class="nav-item">
                   <a class="nav-link" href="Menus/ajouter">Ajouter un menu</a>
                 </li>
@@ -38,8 +37,11 @@
               </li>
               
             </ul>
-            <?php if (false) : ?>
-              <form class="form-inline">
+            <?php if ($utilisateur != '') : ?>
+              <form class="form-inline" action="Utilisateurs/deconnecter" method="post">
+                <span class="navbar-text mr-sm-2">
+                  Bienvenue <?= $utilisateur ?><br>
+                </span>
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Se déconnecter</button>
               </form>
             <?php else : ?>
@@ -49,10 +51,12 @@
             <?php endif; ?>
           </div>
         </nav>
-
         <div class="jumbotron">
           <p class="lead">Bienvenue sur la page web de création de menus !</p>
           <hr class="my-2">
+          <?php if ($utilisateur == '') : ?>
+            <div class="alert alert-primary" role="alert">Vous devez être connecté pour pouvoir ajouter un menu</div>
+          <?php endif; ?>
           <header>
             <a href="index.php"></a>
           </header>
@@ -66,7 +70,6 @@
             <?= $contenu ?>
           <div>
         </div>
-
         <div class="card-footer text-muted">
             Page web réalisé avec PHP, HTML5 et Bootstrap
         </div>
