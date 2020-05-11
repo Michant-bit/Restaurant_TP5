@@ -20,11 +20,11 @@
             </tbody>
         </table>
     </header>
-    <form action="Items/supprimer" style="display:inline-block;" method="post">
+    <form action="AdminItems/supprimer" style="display:inline-block;" method="post">
         <input type="hidden" name="id" value="<?= $this->nettoyer($item['id']) ?>" />
         <button type="submit" class="btn btn-secondary">Confirmer</button>
     </form>
-    <form action="Menus/lire" style="display:inline-block;" method="post" >
+    <form action="AdminMenus/lire" style="display:inline-block;" method="post" >
         <input type="hidden" name="id" value="<?= $this->nettoyer($item['menu_id']) ?>" />
         <button type="submit" class="btn btn-light">Annuler</button>
     </form>

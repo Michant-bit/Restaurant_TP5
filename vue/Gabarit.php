@@ -26,7 +26,7 @@
               </li>
               <?php if ($utilisateur != '') : ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="Menus/ajouter">Ajouter un menu</a>
+                  <a class="nav-link" href="AdminMenus/ajouter">Ajouter un menu</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="tests.php">Tests</a>
@@ -55,7 +55,7 @@
           <p class="lead">Bienvenue sur la page web de création de menus !</p>
           <hr class="my-2">
           <?php if ($utilisateur == '') : ?>
-            <div class="alert alert-primary" role="alert">Vous devez être connecté pour pouvoir ajouter un menu</div>
+            <div class="alert alert-primary" role="alert">Vous devez être connecté pour pouvoir ajouter, modifier ou supprimer un menu</div>
           <?php endif; ?>
           <header>
             <a href="index.php"></a>

@@ -33,11 +33,11 @@ class ControleurAdminItems extends ControleurAdmin {
                 $this->requete->getsession()->setAttribut('erreur', '');
             }
             //Recharger la page pour mettre à jour la liste des items associés
-            $this->rediriger('Menus', 'lire/' . $item['menu_id']);
+            $this->rediriger('AdminMenus', 'lire/' . $item['menu_id']);
         } else {
             //Recharger la page avec une erreur près du prix
             $this->requete->getSession()->setAttribut('erreur', 'dollar');
-            $this->rediriger('Menus', 'lire/' . $item['menu_id']);
+            $this->rediriger('AdminMenus', 'lire/' . $item['menu_id']);
         }
     }
 
@@ -57,7 +57,7 @@ class ControleurAdminItems extends ControleurAdmin {
         // Supprimer l'item à l'aide du modèle
         $this->item->supprimerItem($id);
         //Recharger la page pour mettre à jour la liste des items associés
-        $this->rediriger('Menus', 'lire/' . $item['menu_id']);
+        $this->rediriger('AdminMenus', 'lire/' . $item['menu_id']);
     }
 
 // Supprimer un item définitivement
@@ -68,7 +68,7 @@ class ControleurAdminItems extends ControleurAdmin {
         // Supprimer l'item à l'aide du modèle
         $this->item->supprimerDefItem($id);
         //Recharger la page pour mettre à jour la liste des items associés
-        $this->rediriger('Menus', 'lire/' . $item['menu_id']);
+        $this->rediriger('AdminMenus', 'lire/' . $item['menu_id']);
     }
 
 // Rétablir un item
@@ -79,7 +79,7 @@ class ControleurAdminItems extends ControleurAdmin {
         // Restaurer l'item à l'aide du modèle
         $this->item->restoreItem($id);
         //Recharger la page pour mettre à jour la liste des items associés
-        $this->rediriger('Menus', 'lire/' . $item['menu_id']);
+        $this->rediriger('AdminMenus', 'lire/' . $item['menu_id']);
     }
 
 }

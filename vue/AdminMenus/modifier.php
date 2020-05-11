@@ -3,7 +3,7 @@
 <header>
     <p class="lead">Modifier un menu de l'utilisateur :</p>
 </header>
-<form action= "Menus/miseAJour" method="post">
+<form action= "AdminMenus/miseAJour" method="post">
     <p>
         <div class="row">
             <div class="col-sm-5">
