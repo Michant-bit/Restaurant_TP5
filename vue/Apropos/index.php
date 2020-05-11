@@ -13,6 +13,8 @@
 <ul class="list-unstyled">
     <li>L'application "Création de menu" permet de créer des menus et d'y ajouter des items pour ainsi créer des recettes.</li>
     <li>La page d'Accueil présente la liste des menus disponibles.</li>
+    <li>Vous devez être connecté pour pouvoir ajouter, modifier ou supprimer les menus et les items du site.</li>
+    <li>Le mode test peut être seulement accédé par l'admin</li>
     <li>On y retrouve un lien pour créer un nouveau menu :</li>
     <ul>
         <li>La page de création d'un menu offre de créer son propre menu en spécifiant les items de la recette.</li>
@@ -22,6 +24,8 @@
         </ul>
         <li>Un menu peut être supprimer (Attention, aucun message de confirmation ne sera envoyé pour cette action)</li>
     </ul>
+    <li>On y retrouve un lien pour changer de controleur d'accueil pour celui des items :</li>
+    <li>On y retrouve aussi un lien pour faire des tests</li>
     <li>Pour ajouter des items, simplement cliquer sur le nom du menu.<br></li>
     <ul>
         <li>Un tableau des items déjà présents dans la rectte sera présenté. Ces items peuvent être supprimer.</li>

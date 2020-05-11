@@ -25,15 +25,17 @@
                 <a class="nav-link" href="index.php">Acceuil<span class="sr-only"></span></a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="Items">Changer d'index</a>
+                  <a class="nav-link" href="Items">Liste des items</a>
               </li>
               <?php if ($utilisateur != '') : ?>
                 <li class="nav-item">
                   <a class="nav-link" href="AdminMenus/ajouter">Ajouter un menu</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="tests.php">Tests</a>
-                </li>
+                <?php if ($utilisateur == 'admin') : ?>
+                  <li class="nav-item">
+                    <a class="nav-link" href="tests.php">Tests</a>
+                  </li>
+                <?php endif; ?>
               <?php endif; ?>
               <li class="nav-item">
                   <a class="nav-link" href="apropos">À propos</a>
