@@ -23,15 +23,20 @@
               <li class="nav-item active">
                 <a class="nav-link" href="index.php">Acceuil<span class="sr-only"></span></a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Menus/ajouter">Ajouter un menu</a>
-              </li>
+              <?php if ($utilisateur != '') : ?>
+                
+              <?php else : ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="Menus/ajouter">Ajouter un menu</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="tests.php">Tests</a>
+                </li>
+              <?php endif; ?>
               <li class="nav-item">
                   <a class="nav-link" href="apropos">À propos</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="tests.php">Tests</a>
-              </li>
+              
             </ul>
             <?php if (false) : ?>
               <form class="form-inline">

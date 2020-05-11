@@ -9,8 +9,13 @@
             </a>
             <h6><?= $menu['details'] ?></h6>
             <h6>De <time><?= $this->nettoyer($menu['date_debut']) ?></time> à <time><?= $this->nettoyer($menu['date_fin']) ?></time>, par <?= $this->nettoyer($menu['nom_utilisateur']) ?></h6>
-            <h6><?= $this->nettoyer($menu['email']) ?></h6>
-            <small class="text-muted">Vous devez être connecté pour modifier ou supprimer ce menu</small>
+            <h6><?= $this->nettoyer($menu['email']) ?></h6><br>
+            <a href="Menus/modifier/<?= $this->nettoyer($menu['id']) ?>">
+                <button type="submit" class="btn btn-primary mb-2">Modifier</button>
+            </a>
+            <a href="Menus/supprimer/<?= $this->nettoyer($menu['id']) ?>">
+                <button type="submit" class="btn btn-danger mb-2">Supprimer</button>
+            </a>
         </header>
     </menu>
     <hr />

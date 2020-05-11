@@ -11,7 +11,8 @@ class Menu extends Modele {
 
 // Renvoyer la liste de tous les menus
     public function getMenus() {
-        $sql = 'SELECT * FROM menus' . ' order by ID desc';
+        //$sql = 'SELECT * FROM menus' . ' order by ID desc';
+        $sql = 'SELECT m.id, m.nom, m.date_debut, m.date_fin, m.details, m.email, m.utilisateur_id, u.nom_utilisateur, u.identifiant FROM menus m INNER JOIN utilisateurs u ON m.utilisateur_id = u.id ORDER BY id desc';
         $menus = $this->executerRequete($sql);
         return $menus;
     }
@@ -25,14 +26,14 @@ class Menu extends Modele {
 
 // Renvoyer les informations d'un menu
     function getMenu($idMenu) {
-        $sql = 'SELECT * FROM menus WHERE id = ?';
+        //$sql = 'SELECT * FROM menus WHERE id = ?';
+        $sql = 'SELECT m.id, m.nom, m.date_debut, m.date_fin, m.details, m.email, m.utilisateur_id, u.nom_utilisateur FROM menus m INNER JOIN utilisateurs u ON m.utilisateur_id = u.id WHERE m.id = ?';
         $menu = $this->executerRequete($sql, [$idMenu]);
         if($menu -> rowCount() == 1){
             return $menu->fetch();
         } else {
             throw new Exception("Aucun menu ne correspond à l'identifiant '$idMenu'");
         }
-        // return $menu; 
     }
 
 // Mets à jour les informations des menus de la liste

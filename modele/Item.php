@@ -11,7 +11,8 @@ class Item extends Modele {
 
 // Renvoyer la liste des items associés au menu
     public function getItems($idMenu) {
-        $sql = 'SELECT * FROM items WHERE menu_id = ?';
+        //$sql = 'SELECT * FROM items WHERE menu_id = ?';
+        $sql = 'SELECT i.id, i.nom, i.prix, i.details, i.efface, i.menu_id FROM items i INNER JOIN menus m ON i.menu_id = m.id WHERE menu_id = ?';
         $items = $this->executerRequete($sql, [$idMenu]);
         return $items;
     }
@@ -30,9 +31,7 @@ class Item extends Modele {
 
 // Supprimer un item
     public function supprimerItem($id){
-        $sql = 'UPDATE items'
-                . ' SET efface = 1'
-                . ' WHERE id = ?';
+        $sql = 'UPDATE items SET efface = 1 WHERE id = ?';
         $resultat = $this->executerRequete($sql, [$id]);
         return $resultat;
     }
@@ -46,9 +45,7 @@ class Item extends Modele {
 
 // Réactive un item
     public function restoreItem($id) {
-        $sql = 'UPDATE items'
-                . ' SET efface = 0'
-                . ' WHERE id = ?';
+        $sql = 'UPDATE items SET efface = 0 WHERE id = ?';
         $result = $this->executerRequete($sql, [$id]);
         return $result;
     }
