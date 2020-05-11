@@ -3,11 +3,11 @@
 require_once 'framework/Vue.php';
 $item = [
         'id' => '100',
-        'nom' => 'nom Test',
+        'nomItem' => 'nom Test',
         'prix' => '10',
-        'details' => 'details Test',
+        'detailsItem' => 'details Test',
         'menu_id' => '101'
     ];
-$vue = new Vue('Confirmer', 'Items');
-$vue->generer(['item' => $item]);
+$vue = new Vue('Confirmer', 'AdminItems');
+$vue->generer(['item' => $item], null);
 

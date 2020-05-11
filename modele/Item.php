@@ -60,7 +60,7 @@ class Item extends Modele {
 // Ajouter un item à un menu
     public function setItem($item) {
         $sql = 'INSERT INTO items (nomItem, prix, detailsItem, menu_id) VALUES(?,?,?,?)';
-        $resultat = $this->executerRequete($sql, [$item['nomItem'], $item['prix'], $item['detailsItem'], $item['menu_id']]);
+        $resultat = $this->executerRequete($sql, [$item['nom'], $item['prix'], $item['details'], $item['menu_id']]);
         return $resultat;
     }
 
